@@ -7,15 +7,6 @@ import pygame
 from random import random
 from visualize import Visualize
 
-
-def constructComponent(x1, y1, x2, y2):
-    leftDown = Coordinate(x1, y1)
-    rightUp = Coordinate(x2, y2) 
-
-    return Component(leftDown, rightUp)
-
-
-
 def run():
     util = Util()
     grid = Grid(1) 
