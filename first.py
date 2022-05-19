@@ -3,12 +3,12 @@
 class Component:
 
     def __init__(self, leftDown, rightUp):
-        self.validateConfigs(leftDown, rightUp)
+        self.validateCoordinates(leftDown, rightUp)
         self.leftDown = leftDown
         self.rightUp = rightUp
 
-    def validateCoordinates(leftDown, rightUp):
-        if leftDown.x > rightUp.x or lefDown.y > rightUp.y:
+    def validateCoordinates(self, leftDown, rightUp):
+        if leftDown.x > rightUp.x or leftDown.y > rightUp.y:
             raise Exception("Coordinates are not set correctly")
 
 class Grid:
@@ -32,31 +32,33 @@ class Grid:
 
         for i in range(len(self.gridComponents)):
             for j in range(len(self.gridComponents)):
-                score += (connectionMatrix[i][j] + connectionMatrix[j][i]) * Util.distBetweenComponents(self.gridComponents[i], self.gridComponents[j])
-
+                sumConnections = connectionMatrix[i][j] + connectionMatrix[j][i]
+                score +=  sumConnections * Util().distBetweenComponents(self.gridComponents[i], self.gridComponents[j])
 
         return score
         
         
 
+import math
+
 class Util:
 
-    def distBetweenComponents(c1, c2):
+    def distBetweenComponents(self, c1, c2):
         x = 0
         y = 0
         if not self.overlapsInX(c1, c2):
-            x = min(abs(c1.righUpper.x - c2.lefDown.x), abs(c1.lefDown.x - c2.righUpper.x))
+            x = min(abs(c1.rightUp.x - c2.leftDown.x), abs(c1.leftDown.x - c2.rightUp.x))
 
         if not self.overlapsInY(c1, c2):
-             y = min(abs(c1.righUpper.y - c2.lefDown.y), abs(c1.lefDown.y - c2.righUpper.y)) 
+             y = min(abs(c1.rightUp.y - c2.leftDown.y), abs(c1.leftDown.y - c2.rightUp.y)) 
 
-        return (x, y)
+        return math.sqrt(x*x + y*y)
 
-    def overlapsInX(c1, c2):
-        return c1.righUpper.x > c2.lefDown.x or c2.righUpper.x > c1.lefDown.x
+    def overlapsInX(self, c1, c2):
+        return (c2.rightUp.x <= c1.rightUp.x and c2.rightUp.x >= c1.leftDown.x) or (c2.leftDown.x <= c1.rightUp.x and c2.leftDown.x >= c1.leftDown.x)
      
-    def overlapsInY(c1, c2):
-        return c1.righUpper.y > c2.lefDown.y or c2.righUpper.y > c1.lefDown.y
+    def overlapsInY(self, c1, c2):
+        return (c2.rightUp.y <= c1.rightUp.y and c2.rightUp.y >= c1.leftDown.y) or (c2.leftDown.y <= c1.rightUp.y and c2.leftDown.y >= c1.leftDown.y)
    
 class Coordinate:
     def __init__(self, x, y):
@@ -73,14 +75,14 @@ def run():
     grid = Grid(1)   
 
     component1 = constructComponent(1, 2, 3, 4)
-    component2 = constructComponent(2, 3, 4, 5)
+    component2 = constructComponent(23, 24, 25, 26)
 
     grid.addComponentToStage(component1)
     grid.addComponentToStage(component2)
     
     connectionMatrix = [[1, 2], [2, 4]]
 
-    print(getGridScore(connectionMatrix))
+    print(grid.getGridScore(connectionMatrix))
 
 
 if  __name__ == '__main__':
