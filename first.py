@@ -8,7 +8,8 @@ class Component:
         self.rightUp = rightUp
 
     def validateCoordinates(leftDown, rightUp):
-        pass 
+        if leftDown.x > rightUp.x or lefDown.y > rightUp.y:
+            raise Exception("Coordinates are not set correctly")
 
 class Grid:
     def __init__(self, gridCellSize):
@@ -58,11 +59,54 @@ class Util:
         return c1.righUpper.y > c2.lefDown.y or c2.righUpper.y > c1.lefDown.y
    
 class Coordinate:
-          
+    def __init__(self, x, y):
+        self.x = x 
+        self.y = y
+
+def constructComponent(x1, y1, x2, y2):
+    leftDown = Coordinate(x1, y1)
+    rightUp = Coordinate(x2, y2) 
+
+    return Component(leftDown, rightUp)
 
 def run():
-   grid = Grid(1)    
+    grid = Grid(1)   
+
+    component1 = constructComponent(1, 2, 3, 4)
+    component2 = constructComponent(2, 3, 4, 5)
+
+    grid.addComponentToStage(component1)
+    grid.addComponentToStage(component2)
+    
+    connectionMatrix = [[1, 2], [2, 4]]
+
+    print(getGridScore(connectionMatrix))
 
 
 if  __name__ == '__main__':
     run()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
