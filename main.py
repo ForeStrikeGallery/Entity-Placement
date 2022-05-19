@@ -5,8 +5,8 @@ from grid import Grid
 from component import Component
 import pygame
 from random import random
+from visualize import Visualize
 
-# , Util, Component, Grid
 
 def constructComponent(x1, y1, x2, y2):
     leftDown = Coordinate(x1, y1)
@@ -15,17 +15,13 @@ def constructComponent(x1, y1, x2, y2):
     return Component(leftDown, rightUp)
 
 
-def drawComponent(screen, c):
-    color = (random()*1000 % 255,random()*1000 % 255,random()*1000 % 255)
-    pygame.draw.rect(screen, color, pygame.Rect(c.leftDown.x, c.leftDown.y, c.rightUp.x, c.rightUp.y),  0)
-    pygame.display.flip()    
-   
 
 def run():
     util = Util()
-    grid = Grid(1)   
+    grid = Grid(1) 
+    v = Visualize()  
 
-    component1 = util.constructComponent(30, 40, 50, 60)
+    component1 = util.constructComponent(3, 3, 50, 60)
     component2 = util.constructComponent(10, 15, 25, 35)
 
     grid.addComponentToStage(component1)
@@ -37,13 +33,12 @@ def run():
 
     surface = pygame.display.set_mode((400,300))
     
-    drawComponent(surface, component1)
-    drawComponent(surface, component2)
+    v.drawComponent(surface, component1)
+    v.drawComponent(surface, component2)
 
     print(grid.getGridScore(connectionMatrix))
 
-    while True:
-        pass 
+    v.stayOn()
 
     
 
