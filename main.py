@@ -5,27 +5,31 @@ from grid import Grid
 from component import Component
 import pygame
 from random import random
-from visualize import Visualize
+from visualizer import Visualizer
 
 def run():
     util = Util()
     grid = Grid(1) 
-    v = Visualize()  
-
-    component1 = util.constructComponent(3, 3, 50, 60)
-    component2 = util.constructComponent(10, 15, 25, 35)
-
-    grid.addComponentToStage(component1)
-    grid.addComponentToStage(component2)
-    
-    connectionMatrix = [[1, 2], [2, 4]]
+    v = Visualizer(300, 400)  
 
     pygame.init()
 
-    surface = pygame.display.set_mode((400,300))
+    component1 = util.constructComponent(3, 3, 50, 60)
+    component2 = util.constructComponent(10, 15, 25, 35)
+    component3 = util.constructComponent(40, 100, 110, 115)
+    component4 = util.constructComponent(100, 12, 110, 35)
+
+    grid.addComponentToStage(component1)
+    grid.addComponentToStage(component2)
+    grid.addComponentToStage(component3)
+    grid.addComponentToStage(component4)
     
-    v.drawComponent(surface, component1)
-    v.drawComponent(surface, component2)
+    connectionMatrix = [[1, 2, 1, 3], [1, 2, 1, 3], [1, 2, 1, 3], [1, 2, 1, 3]]
+    
+    v.drawComponent(component1)
+    v.drawComponent(component2)
+    v.drawComponent(component3)
+    v.drawComponent(component4)
 
     print(grid.getGridScore(connectionMatrix))
 
