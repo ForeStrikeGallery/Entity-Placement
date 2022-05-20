@@ -9,7 +9,7 @@ from visualizer import Visualizer
 
 def run():
     util = Util()
-
+  
     gridCellSize = 1
     gridWidth = 500
     gridHeight = 400
@@ -25,7 +25,8 @@ def run():
     grid.addComponentToStage(component2)
     grid.addComponentToStage(component3)
     grid.addComponentToStage(component4)
-    
+
+    grid.drawGridLines() 
     grid.display()
 
 

@@ -42,3 +42,6 @@ class Grid:
         for component in self.gridComponents:
             self.v.drawComponent(component.getRectParams(self.width, self.height))
         self.v.stayOn()
+
+    def drawGridLines(self):
+        self.v.drawGridLines(self.cellSize)
