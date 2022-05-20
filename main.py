@@ -12,14 +12,14 @@ def run():
   
     gridCellSize = 1
     gridWidth = 500
-    gridHeight = 400
+    gridHeight = 500
 
     grid = Grid(gridCellSize, gridWidth, gridHeight) 
 
     component1 = util.constructComponent(20, 20, 100, 200)
-    component2 = util.constructComponent(10, 15, 25, 35)
-    component3 = util.constructComponent(40, 100, 110, 115)
-    component4 = util.constructComponent(100, 12, 110, 35)
+    component2 = util.constructComponent(30, 300, 50, 400)
+    component3 = util.constructComponent(150, 10, 400, 120)
+    component4 = util.constructComponent(200, 300, 250, 400)
 
     grid.addComponentToStage(component1)
     grid.addComponentToStage(component2)
