@@ -9,10 +9,12 @@ from visualizer import Visualizer
 
 def run():
     util = Util()
-    grid = Grid(1) 
-    v = Visualizer(300, 400)  
 
-    pygame.init()
+    gridCellSize = 1
+    gridWidth = 300
+    gridHeight = 400
+
+    grid = Grid(gridCellSize, gridWidth, gridHeight) 
 
     component1 = util.constructComponent(3, 3, 50, 60)
     component2 = util.constructComponent(10, 15, 25, 35)
@@ -24,18 +26,11 @@ def run():
     grid.addComponentToStage(component3)
     grid.addComponentToStage(component4)
     
-    connectionMatrix = [[1, 2, 1, 3], [1, 2, 1, 3], [1, 2, 1, 3], [1, 2, 1, 3]]
-    
-    v.drawComponent(component1)
-    v.drawComponent(component2)
-    v.drawComponent(component3)
-    v.drawComponent(component4)
+    grid.setConnectionMatrix([[1, 2, 1, 3], [1, 2, 1, 3], [1, 2, 1, 3], [1, 2, 1, 3]])
+    grid.display()
 
     print(grid.getGridScore(connectionMatrix))
 
-    v.stayOn()
-
-    
 
 if  __name__ == '__main__':
     run()
