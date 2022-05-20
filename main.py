@@ -26,10 +26,7 @@ def run():
     grid.addComponentToStage(component3)
     grid.addComponentToStage(component4)
     
-    # grid.setConnectionMatrix([[1, 2, 1, 3], [1, 2, 1, 3], [1, 2, 1, 3], [1, 2, 1, 3]])
     grid.display()
-
-    # print(grid.getGridScore(connectionMatrix))
 
 
 if  __name__ == '__main__':
