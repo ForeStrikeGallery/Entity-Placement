@@ -9,4 +9,7 @@ class Component:
         if leftDown.x > rightUp.x or leftDown.y > rightUp.y:
             raise Exception("Coordinates are not set correctly")
 
+    def getRectParams(self, gridWidth, gridHeight):
+        return (self.leftDown.x, gridHeight - self.rightUp.y, self.rightUp.x - self.leftDown.x, self.rightUp.y - self.leftDown.y)
+
         

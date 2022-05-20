@@ -11,12 +11,12 @@ def run():
     util = Util()
 
     gridCellSize = 1
-    gridWidth = 300
+    gridWidth = 500
     gridHeight = 400
 
     grid = Grid(gridCellSize, gridWidth, gridHeight) 
 
-    component1 = util.constructComponent(3, 3, 50, 60)
+    component1 = util.constructComponent(20, 20, 100, 200)
     component2 = util.constructComponent(10, 15, 25, 35)
     component3 = util.constructComponent(40, 100, 110, 115)
     component4 = util.constructComponent(100, 12, 110, 35)
@@ -26,10 +26,10 @@ def run():
     grid.addComponentToStage(component3)
     grid.addComponentToStage(component4)
     
-    grid.setConnectionMatrix([[1, 2, 1, 3], [1, 2, 1, 3], [1, 2, 1, 3], [1, 2, 1, 3]])
+    # grid.setConnectionMatrix([[1, 2, 1, 3], [1, 2, 1, 3], [1, 2, 1, 3], [1, 2, 1, 3]])
     grid.display()
 
-    print(grid.getGridScore(connectionMatrix))
+    # print(grid.getGridScore(connectionMatrix))
 
 
 if  __name__ == '__main__':

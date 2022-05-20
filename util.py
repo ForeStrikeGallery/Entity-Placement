@@ -21,8 +21,8 @@ class Util:
     def overlapsInY(self, c1, c2):
         return (c2.rightUp.y <= c1.rightUp.y and c2.rightUp.y >= c1.leftDown.y) or (c2.leftDown.y <= c1.rightUp.y and c2.leftDown.y >= c1.leftDown.y)
 
-    def constructComponent(self, x1, y1, x2, y2):
-        leftDown = Coordinate(x1, y1)
-        rightUp = Coordinate(x2, y2) 
+    def constructComponent(self, leftUpX, leftUpY, rightUpX, rightUpY):
+        leftDown = Coordinate(leftUpX, leftUpY)
+        rightUp = Coordinate(rightUpX, rightUpY)
 
         return Component(leftDown, rightUp)
