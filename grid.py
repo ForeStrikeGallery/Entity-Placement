@@ -8,7 +8,8 @@ class Grid:
         self.height = height
         self.gridComponents = list()
         self.v = Visualizer(width, height)
-   
+        self.cMatrix = None
+
     def addComponentToStage(self, component):
         # Add component to staging area
         # will arrange in the right place later
@@ -20,12 +21,19 @@ class Grid:
         # else, raise and error     
         pass
 
-    def getGridScore(self, connectionMatrix):
+    def setConnectionMatrix(self, cMatrix):
+        self.cMatrix = cMatrix
+
+    def getGridScore(self):
+
+        if self.cMatrix == None:
+            raise Exception("Connection matrix not set")
+
         score = 0
 
         for i in range(len(self.gridComponents)):
             for j in range(len(self.gridComponents)):
-                sumConnections = connectionMatrix[i][j] + connectionMatrix[j][i]
+                sumConnections = self.cMatrix[i][j] + self.cMatrix[j][i]
                 score +=  sumConnections * Util().distBetweenComponents(self.gridComponents[i], self.gridComponents[j])
 
         return score
