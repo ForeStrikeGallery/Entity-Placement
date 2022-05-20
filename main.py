@@ -9,8 +9,8 @@ from visualizer import Visualizer
 
 def run():
     util = Util()
-    grid = Grid(1) 
-    v = Visualizer(300, 400)  
+    grid = Grid(1, 300, 400) 
+    # v = Visualizer(300, 400)  
 
     pygame.init()
 
@@ -25,15 +25,17 @@ def run():
     grid.addComponentToStage(component4)
     
     connectionMatrix = [[1, 2, 1, 3], [1, 2, 1, 3], [1, 2, 1, 3], [1, 2, 1, 3]]
+
+    grid.display()
     
-    v.drawComponent(component1)
-    v.drawComponent(component2)
-    v.drawComponent(component3)
-    v.drawComponent(component4)
+    # v.drawComponent(component1)
+    # v.drawComponent(component2)
+    # v.drawComponent(component3)
+    # v.drawComponent(component4)
 
     print(grid.getGridScore(connectionMatrix))
 
-    v.stayOn()
+    # v.stayOn()
 
     
 

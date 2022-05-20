@@ -1,9 +1,13 @@
 from util import Util
+from visualizer import Visualizer
 
 class Grid:
-    def __init__(self, gridCellSize):
-        self.gridCellSize = gridCellSize
+    def __init__(self, cellSize, width, height):
+        self.cellSize = cellSize
+        self.width = width
+        self.height = height
         self.gridComponents = list()
+        self.v = Visualizer(width, height)
    
     def addComponentToStage(self, component):
         # Add component to staging area
@@ -25,4 +29,8 @@ class Grid:
                 score +=  sumConnections * Util().distBetweenComponents(self.gridComponents[i], self.gridComponents[j])
 
         return score
-        
+
+    def display(self):
+        for component in self.gridComponents:
+            self.v.drawComponent(component)
+        self.v.stayOn()
