@@ -40,5 +40,5 @@ class Grid:
 
     def display(self):
         for component in self.gridComponents:
-            self.v.drawComponent(component)
+            self.v.drawComponent(component.getRectParams(self.width, self.height))
         self.v.stayOn()

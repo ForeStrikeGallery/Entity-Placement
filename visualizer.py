@@ -11,7 +11,7 @@ class Visualizer:
 
 	def drawComponent(self, c):
 	    color = (random()*1000 % 255,random()*1000 % 255,random()*1000 % 255)
-	    pygame.draw.rect(self.surface, color, pygame.Rect(c.leftDown.x, c.leftDown.y, c.rightUp.x, c.rightUp.y),  0)
+	    pygame.draw.rect(self.surface, color, pygame.Rect(c[0], c[1], c[2], c[3]),  0)
 	      
 
 	def stayOn(self):

@@ -23,6 +23,6 @@ class Util:
 
     def constructComponent(self, x1, y1, x2, y2):
         leftDown = Coordinate(x1, y1)
-        rightUp = Coordinate(x2, y2) 
+        rightUp = Coordinate(x2, y2)
 
         return Component(leftDown, rightUp)
