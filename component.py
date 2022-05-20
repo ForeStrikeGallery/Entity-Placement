@@ -1,3 +1,5 @@
+cellSize = 10
+
 class Component:
 
     def __init__(self, leftDown, rightUp):
@@ -12,4 +14,23 @@ class Component:
     def getRectParams(self, gridWidth, gridHeight):
         return (self.leftDown.x, gridHeight - self.rightUp.y, self.rightUp.x - self.leftDown.x, self.rightUp.y - self.leftDown.y)
 
-        
+    def moveUp(self, blocks):
+        self.rightUp.y += blocks * cellSize
+        self.leftDown.y += blocks * cellSize
+
+
+    def moveDown(self, blocks):
+        self.rightUp.y -= blocks * cellSize
+        self.leftDown.y -= blocks * cellSize
+
+
+    def moveLeft(self, blocks):
+        self.rightUp.x -= blocks * cellSize
+        self.leftDown.x -= blocks * cellSize
+
+    def moveRight(self, blocks):
+        self.rightUp.x += blocks * cellSize
+        self.leftDown.x += blocks * cellSize
+
+    
+

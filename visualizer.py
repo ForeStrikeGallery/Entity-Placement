@@ -18,9 +18,10 @@ class Visualizer:
 	    pygame.draw.rect(self.surface, dark_grey, pygame.Rect(c[0], c[1], c[2], c[3]),  2)
 	    pygame.draw.rect(self.surface, light_grey, pygame.Rect(c[0]+2, c[1]+2, c[2]-2, c[3]-2), 0)
 	      
+  	def displayFlip(self):
+  		pygame.display.flip() 
 
 	def stayOn(self):
-		pygame.display.flip() 
 		while True:
 			pass 
 
@@ -35,3 +36,6 @@ class Visualizer:
 		while y < self.screenLength:
 			pygame.draw.line(self.surface, red, pygame.Vector2(0, y), pygame.Vector2(self.screenWidth, y))
 			y += 10
+
+	def clearScreen(self):
+		self.surface.fill((0,0,0))

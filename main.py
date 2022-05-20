@@ -10,7 +10,7 @@ from visualizer import Visualizer
 def run():
     util = Util()
   
-    gridCellSize = 1
+    gridCellSize = 10
     gridWidth = 500
     gridHeight = 500
 
@@ -26,8 +26,13 @@ def run():
     grid.addComponentToStage(component3)
     grid.addComponentToStage(component4)
 
+    # component1.moveRight(10)
+
     grid.drawGridLines() 
-    grid.display()
+
+    grid.naiveFit()
+
+    grid.stayOn()
 
 
 if  __name__ == '__main__':
