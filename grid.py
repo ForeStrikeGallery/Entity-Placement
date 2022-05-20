@@ -74,9 +74,7 @@ class Grid:
                 comp.moveDown(1)
                 self.render()
 
-            # move comp down until it hits
         elif comp.rightUp.y < anchor.rightUp.y:
-            # move comp up until it hits
             while comp.rightUp.y + 2 * self.cellSize <= anchor.leftDown.y:
                 comp.moveUp(1)
                 self.render()
@@ -86,11 +84,10 @@ class Grid:
                 print(anchor.rightUp.x, comp.leftDown.x)
                 comp.moveLeft(1)
                 self.render()
-            # move comp right  until it hits
+                
         elif comp.rightUp.x < anchor.rightUp.x:
             while comp.rightUp.x + 2 * self.cellSize <= anchor.leftDown.x:
                 print(anchor.rightUp.x, comp.leftDown.x)
                 comp.moveRight(1)
                 self.render()
-            # move comp up until it hits
 

@@ -26,12 +26,9 @@ def run():
     grid.addComponentToStage(component3)
     grid.addComponentToStage(component4)
 
-    # component1.moveRight(10)
 
     grid.drawGridLines() 
-
     grid.naiveFit()
-
     grid.stayOn()
 
 
