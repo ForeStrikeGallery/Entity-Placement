@@ -6,6 +6,7 @@ class Component:
         self.validateCoordinates(leftDown, rightUp)
         self.leftDown = leftDown
         self.rightUp = rightUp
+        self.isAnchor = False
 
     def validateCoordinates(self, leftDown, rightUp):
         if leftDown.x > rightUp.x or leftDown.y > rightUp.y:
