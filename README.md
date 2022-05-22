@@ -3,10 +3,10 @@
 
 A program to find optimal ways of placing hardware components on a chip floor
 
-## Notes
+## Instructions for running 
 
-* There's a NxN connection matrix
-* We don't need to optimize area, we just want best connectivity 
-* Cost function: (grid-to-grid) * num-connections-between-boxes
+1. `pip install -r requirements.txt`
+2. `python3 main.py`
 
+That's all. There's nothing fancy going on (yet).
 
