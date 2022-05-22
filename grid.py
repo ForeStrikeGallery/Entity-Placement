@@ -92,7 +92,7 @@ class Grid:
                 if i == j:
                     continue
 
-                self.moveCompNearCenterComp(self.gridComponents[i], anchor)
+                self.moveCompNearAnchor(self.gridComponents[i], anchor)
 
     def aboutToOverlapWithOthers(self, comp):
 
@@ -103,13 +103,19 @@ class Grid:
             if abs(c.leftDown.x - comp.rightUp.x) <= self.cellSize and util.overlapsInY(c, comp):
                 return True 
 
+            if abs(c.rightUp.x - comp.leftDown.x) <= self.cellSize and util.overlapsInY(c, comp):
+                return True 
+
             if abs(c.leftDown.y - comp.rightUp.y) <= self.cellSize and util.overlapsInX(c, comp):
+                return True 
+            
+            if abs(c.rightUp.y - comp.leftDown.y) <= self.cellSize and util.overlapsInX(c, comp):
                 return True 
 
         return False
 
 
-    def moveCompNearCenterComp(self, comp, anchor):
+    def moveCompNearAnchor(self, comp, anchor):
 
         if anchor.rightUp.y < comp.leftDown.y:
             while anchor.rightUp.y + 2 * self.cellSize <= comp.leftDown.y:
